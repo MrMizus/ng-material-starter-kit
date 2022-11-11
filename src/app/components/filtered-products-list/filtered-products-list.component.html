@@ -2,7 +2,7 @@
   <mat-card-title>Categories</mat-card-title>
   <mat-card-content>
     <mat-list role="list" fxLayout="'row">
-      <mat-list-item role="listitem" *ngFor="let item of categories$ | async" [routerLink]="'/products/' + item">{{item}}</mat-list-item>
+      <mat-list-item role="listitem" *ngFor="let item of categories$ | async" (click)="selectCategory(item)" >{{item}}</mat-list-item>
     </mat-list>
   </mat-card-content>
 </mat-card>
