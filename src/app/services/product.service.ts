@@ -11,4 +11,8 @@ export class ProductService {
   getAll(): Observable<ProductsModel[]> {
     return this._httpClient.get<ProductsModel[]>('https://fakestoreapi.com/products');
   }
+
+  delete(id: number): Observable<ProductsModel> {
+    return this._httpClient.delete<ProductsModel>(`https://fakestoreapi.com/products/${id}`);
+  }
 }
