@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { EmployeesModel } from '../models/employees.model';
-import {ApiResponse} from "./api.response";
-import {EmployeesResponse} from "./employees.response";
-import {map} from "rxjs/operators";
+import { ApiResponse } from './api.response';
+import { EmployeesResponse } from './employees.response';
 
 @Injectable()
 export class EmployeesListService {
@@ -26,5 +26,9 @@ export class EmployeesListService {
           });
         })
       )
+  }
+
+  delete(id: string): Observable<EmployeesModel> {
+    return this._httpClient.delete<EmployeesModel>(`https://dummy.restapiexample.com/api/v1/delete/${id}`);
   }
 }
