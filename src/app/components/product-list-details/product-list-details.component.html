@@ -1,0 +1,8 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of list$ | async">{{item.title}}</mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile>Right</mat-grid-tile>
+</mat-grid-list>
