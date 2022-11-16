@@ -30,19 +30,28 @@ export class EmployeesListComponent {
         if(a.salary < b.salary) return order === "asc" ? -1 : 1;
         return 0;
       }).filter((employee) => {
-        if (range === "0-20" && parseInt(employee.age) <= 20) {
+        if (range === "all") {return employee}
+        const min = range.split('-')[0]
+        const max = range.split('-')[1]
+        if (employee.age >= min && employee.age <= max) {
           return employee
-        }else if (range === "21-30" && parseInt(employee.age) <= 30 && parseInt(employee.age) >= 21){
-          return employee
-        }else if (range === "31-40" && parseInt(employee.age) <= 40 && parseInt(employee.age) >= 31){
-          return employee
-        }else if (range === "41-50" && parseInt(employee.age) <= 50 && parseInt(employee.age) >= 41){
-          return employee
-        }else if (range === "51-100" && parseInt(employee.age) <= 100 && parseInt(employee.age) >= 51){
-          return employee
-        }else if (range === "all") {
-          return employee
-        }else return
+        } else {
+          return
+        }
+
+        // if (range === "0-20" && parseInt(employee.age) <= 20) {
+        //   return employee
+        // }else if (range === "21-30" && parseInt(employee.age) <= 30 && parseInt(employee.age) >= 21){
+        //   return employee
+        // }else if (range === "31-40" && parseInt(employee.age) <= 40 && parseInt(employee.age) >= 31){
+        //   return employee
+        // }else if (range === "41-50" && parseInt(employee.age) <= 50 && parseInt(employee.age) >= 41){
+        //   return employee
+        // }else if (range === "51-100" && parseInt(employee.age) <= 100 && parseInt(employee.age) >= 51){
+        //   return employee
+        // }else if (range === "all") {
+        //   return employee
+        // }else return
       })
     })
   )

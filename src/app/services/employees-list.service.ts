@@ -31,4 +31,15 @@ export class EmployeesListService {
   delete(id: string): Observable<EmployeesModel> {
     return this._httpClient.delete<EmployeesModel>(`https://dummy.restapiexample.com/api/v1/delete/${id}`);
   }
+
+  getOne(id: string): Observable<EmployeesModel> {
+    return this._httpClient.get<ApiResponse<EmployeesResponse>>("https://dummy.restapiexample.com/api/v1/employee/" + id).pipe
+    (map((response : ApiResponse<EmployeesResponse>): EmployeesModel => ({
+        id: response.data.id,
+        name: response.data.employee_name,
+        salary: response.data.employee_salary,
+        age: response.data.employee_age
+      })))
+
+  }
 }
