@@ -14,9 +14,11 @@ export class EmployeesListComponent {
   private _orderSubject: BehaviorSubject<string> = new BehaviorSubject<string>('asc');
   public order$: Observable<string> = this._orderSubject.asObservable();
   public orders: Observable<string[]> = of(['asc', 'desc']);
+
   private _rangeSubject: BehaviorSubject<string> = new BehaviorSubject<string>("range");
   public range$: Observable<string> = this._rangeSubject.asObservable();
   public ranges: Observable<string[]> = of(['all', '0-20', '21-30', '31-40', '41-50', '51-100']);
+
   readonly employees$: Observable<EmployeesModel[]> = combineLatest([
     this._employeesListService.getAll(),
     this.order$,
