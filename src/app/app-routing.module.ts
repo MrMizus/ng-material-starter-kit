@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { EmployeeRefreshListComponent } from './components/employee-refresh-list/employee-refresh-list.component';
 import { CategoriesLoadingComponent } from './components/categories-loading/categories-loading.component';
 import { CryptoLoadingComponent } from './components/crypto-loading/crypto-loading.component';
+import { HolidaysLoadingComponent } from './components/holidays-loading/holidays-loading.component';
 import { FilteredProductsListComponentModule } from './components/filtered-products-list/filtered-products-list.component-module';
 import { CategoriesServiceModule } from './services/categories.service-module';
 import { ProductServiceModule } from './services/product.service-module';
@@ -18,9 +19,11 @@ import { EmployeeRefreshListComponentModule } from './components/employee-refres
 import { CategoriesLoadingComponentModule } from './components/categories-loading/categories-loading.component-module';
 import { CryptoLoadingComponentModule } from './components/crypto-loading/crypto-loading.component-module';
 import { CryptoServiceModule } from './services/crypto.service-module';
+import { HolidaysLoadingComponentModule } from './components/holidays-loading/holidays-loading.component-module';
+import { HolidaysLoadingServiceModule } from './services/holidays-loading.service-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule],
+  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }, { path: 'public-holidays', component: HolidaysLoadingComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule, HolidaysLoadingComponentModule, HolidaysLoadingServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
