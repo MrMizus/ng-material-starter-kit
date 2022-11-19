@@ -10,6 +10,7 @@ import { CryptoLoadingComponent } from './components/crypto-loading/crypto-loadi
 import { HolidaysLoadingComponent } from './components/holidays-loading/holidays-loading.component';
 import { CategoriesLoadingCheckComponent } from './components/categories-loading-check/categories-loading-check.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RegisterFormRadioComponent } from './components/register-form-radio/register-form-radio.component';
 import { FilteredProductsListComponentModule } from './components/filtered-products-list/filtered-products-list.component-module';
 import { CategoriesServiceModule } from './services/categories.service-module';
 import { ProductServiceModule } from './services/product.service-module';
@@ -27,9 +28,10 @@ import { CategoriesLoadingCheckComponentModule } from './components/categories-l
 import { RegisterFormComponentModule } from './components/register-form/register-form.component-module';
 import { UserServiceModule } from './services/user.service-module';
 import { RoleServiceModule } from './services/role.service-module';
+import { RegisterFormRadioComponentModule } from './components/register-form-radio/register-form-radio.component-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }, { path: 'public-holidays', component: HolidaysLoadingComponent }, { path: 'checkbox-categories', component: CategoriesLoadingCheckComponent }, { path: 'create-user-with-role', component: RegisterFormComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule, HolidaysLoadingComponentModule, HolidaysLoadingServiceModule, CategoriesLoadingCheckComponentModule, RegisterFormComponentModule, UserServiceModule, RoleServiceModule],
+  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }, { path: 'public-holidays', component: HolidaysLoadingComponent }, { path: 'checkbox-categories', component: CategoriesLoadingCheckComponent }, { path: 'create-user-with-role', component: RegisterFormComponent }, { path: 'create-user-with-radio', component: RegisterFormRadioComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule, HolidaysLoadingComponentModule, HolidaysLoadingServiceModule, CategoriesLoadingCheckComponentModule, RegisterFormComponentModule, UserServiceModule, RoleServiceModule, RegisterFormRadioComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
