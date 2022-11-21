@@ -11,6 +11,7 @@ import { HolidaysLoadingComponent } from './components/holidays-loading/holidays
 import { CategoriesLoadingCheckComponent } from './components/categories-loading-check/categories-loading-check.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { RegisterFormRadioComponent } from './components/register-form-radio/register-form-radio.component';
+import { BeerListComponent } from './components/beer-list/beer-list.component';
 import { FilteredProductsListComponentModule } from './components/filtered-products-list/filtered-products-list.component-module';
 import { CategoriesServiceModule } from './services/categories.service-module';
 import { ProductServiceModule } from './services/product.service-module';
@@ -29,9 +30,11 @@ import { RegisterFormComponentModule } from './components/register-form/register
 import { UserServiceModule } from './services/user.service-module';
 import { RoleServiceModule } from './services/role.service-module';
 import { RegisterFormRadioComponentModule } from './components/register-form-radio/register-form-radio.component-module';
+import { BeerListComponentModule } from './components/beer-list/beer-list.component-module';
+import { BeerListServiceModule } from './services/beer-list.service-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }, { path: 'public-holidays', component: HolidaysLoadingComponent }, { path: 'checkbox-categories', component: CategoriesLoadingCheckComponent }, { path: 'create-user-with-role', component: RegisterFormComponent }, { path: 'create-user-with-radio', component: RegisterFormRadioComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule, HolidaysLoadingComponentModule, HolidaysLoadingServiceModule, CategoriesLoadingCheckComponentModule, RegisterFormComponentModule, UserServiceModule, RoleServiceModule, RegisterFormRadioComponentModule],
+  imports: [RouterModule.forRoot([{ path: 'products/:category', component: FilteredProductsListComponent }, { path: 'sorted-products', component: SortedProductListComponent }, { path: 'employees', component: EmployeesListComponent }, { path: 'refresh-products', component: ProductListComponent }, { path: 'refresh-employees', component: EmployeeRefreshListComponent }, { path: 'categories', component: CategoriesLoadingComponent }, { path: 'crypto', component: CryptoLoadingComponent }, { path: 'public-holidays', component: HolidaysLoadingComponent }, { path: 'checkbox-categories', component: CategoriesLoadingCheckComponent }, { path: 'create-user-with-role', component: RegisterFormComponent }, { path: 'create-user-with-radio', component: RegisterFormRadioComponent }, { path: 'beers-with-pagination', component: BeerListComponent }]), FilteredProductsListComponentModule, CategoriesServiceModule, ProductServiceModule, SortedProductListComponentModule, EmployeesListComponentModule, EmployeesListServiceModule, ProductListComponentModule, EmployeeRefreshListComponentModule, CategoriesLoadingComponentModule, CryptoLoadingComponentModule, CryptoServiceModule, HolidaysLoadingComponentModule, HolidaysLoadingServiceModule, CategoriesLoadingCheckComponentModule, RegisterFormComponentModule, UserServiceModule, RoleServiceModule, RegisterFormRadioComponentModule, BeerListComponentModule, BeerListServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
