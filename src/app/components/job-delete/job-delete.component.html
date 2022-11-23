@@ -1,0 +1,6 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of jobs$ | async">
+    {{item.title}}
+    <button mat-mini-fab (click)="remove(item.id)"><mat-icon>remove</mat-icon></button>
+  </mat-list-item>
+</mat-list>
