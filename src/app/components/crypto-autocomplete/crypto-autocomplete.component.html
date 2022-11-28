@@ -1,0 +1,21 @@
+<form [formGroup]="search">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose an option</mat-label>
+      <input type="text"
+             placeholder="Pick one"
+             matInput
+             formControlName="crypto"
+             [matAutocomplete]="crypto">
+      <mat-autocomplete #crypto="matAutocomplete">
+        <mat-option *ngFor="let item of crypto$ | async" [value]="item.symbol">
+          {{item.symbol}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</form>
+
+<mat-option *ngFor="let item of crypto$ | async">
+  {{item.symbol}}
+</mat-option>
