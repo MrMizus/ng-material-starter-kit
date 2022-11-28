@@ -14,7 +14,7 @@ import {map} from "rxjs/operators";
 export class ProductsSearchComponent {
   readonly search: FormGroup = new FormGroup({ title: new FormControl() });
   readonly startsWith$: Observable<string> = this.search.valueChanges.pipe(
-    map(form => form.title),
+    map(form => form.title.toLocaleLowerCase()),
     debounceTime(1000)
   );
 
@@ -23,10 +23,7 @@ export class ProductsSearchComponent {
     this.startsWith$,
   ]).pipe(
     map(([products, startWith]) => {
-      if (!startWith) {
-        return [];
-      }
-      return products.filter(product => product.title.startsWith(startWith))
+      return products.filter(product => product.title.toLocaleLowerCase().startsWith(startWith))
     })
   )
 

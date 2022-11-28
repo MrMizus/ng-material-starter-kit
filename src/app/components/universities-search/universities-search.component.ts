@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import {BehaviorSubject, debounceTime, Observable} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
 import { UniversitiesModel } from '../../models/universities.model';
 import { UniversitiesSearchService } from '../../services/universities-search.service';
 
@@ -13,14 +13,16 @@ import { UniversitiesSearchService } from '../../services/universities-search.se
 })
 export class UniversitiesSearchComponent {
   readonly search: FormGroup = new FormGroup({ country: new FormControl() });
-  private _countrySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  public country$: Observable<string> = this._countrySubject.asObservable();
-  readonly list$: Observable<UniversitiesModel[]> = this.country$.pipe(switchMap(data => this._universitiesSearchService.getAll(data)));
+  readonly startsWith$: Observable<string> = this.search.valueChanges.pipe(
+    map(form =>  form.country),
+    debounceTime(1000),
+  );
+
+
+  readonly list$: Observable<UniversitiesModel[]> = this.startsWith$.pipe(
+    switchMap(data => this._universitiesSearchService.getAll(data)));
 
   constructor(private _universitiesSearchService: UniversitiesSearchService) {
   }
 
-  onSearchSubmitted(search: FormGroup): void {
-    this._countrySubject.next(search.get('country')?.value)
-  }
 }
