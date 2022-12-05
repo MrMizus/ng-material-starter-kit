@@ -12,11 +12,11 @@ export class ProductService {
     return this._httpClient.get<ProductsModel[]>('https://fakestoreapi.com/products');
   }
 
-  delete(id: number): Observable<ProductsModel> {
+  delete(id: string): Observable<ProductsModel> {
     return this._httpClient.delete<ProductsModel>(`https://fakestoreapi.com/products/${id}`);
   }
 
-  getOne(id: number): Observable<ProductsModel> {
+  getOne(id: string): Observable<ProductsModel> {
     return this._httpClient.get<ProductsModel>(`https://fakestoreapi.com/products/${id}`);
   }
 }

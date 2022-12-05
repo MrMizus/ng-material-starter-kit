@@ -15,7 +15,7 @@
   </div>
   <div>
       <section>
-        <mat-checkbox *ngFor="let item of tags$ | async" formControlName="tags" (change)="onChange({event : $event})" [value]="item.id">
+        <mat-checkbox *ngFor="let item of tags$ | async" formControlName="tags" (change)="onChange($event)" [value]="item.id">
           {{item.name}}
         </mat-checkbox>
       </section>

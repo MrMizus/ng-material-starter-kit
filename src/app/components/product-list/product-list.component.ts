@@ -19,7 +19,7 @@ export class ProductListComponent {
   constructor(private _productService: ProductService) {
   }
 
-  remove(id: number): void {
+  remove(id: string): void {
     this._productService.delete(id).subscribe(() => this._refreshSubject.next());
   }
 }

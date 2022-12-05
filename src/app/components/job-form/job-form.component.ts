@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {JobTagsModel} from '../../models/job-tags.model';
 import {JobTagsService} from '../../services/job-tags.service';
@@ -23,7 +23,7 @@ export class JobFormComponent {
   constructor(private _jobTagsService: JobTagsService, private _jobPostsService: JobPostsService) {
   }
 
-  onChange({event}: { event: any }) {
+  onChange(event: any) {
     if (event.checked){
       this.array.push(parseInt(event.source.value))
     } else {
