@@ -16,16 +16,21 @@
 
 <mat-card>
   <mat-card-title></mat-card-title>
-  <mat-card-content *ngIf="list$ | async as list">
-    <mat-list role="list" *ngIf="list.length > 0; else emptyState">
-      <mat-list-item role="listitem" *ngFor="let item of list$ | async">
-        {{item.name}}
-      </mat-list-item>
-    </mat-list>
-    <ng-template #emptyState>
-      Oops! There is no data!
-    </ng-template>
-  </mat-card-content>
+  <div *ngIf="!search.get('country')!.invalid; else startState">
+    <mat-card-content *ngIf="list$ | async as list">
+      <mat-list role="list" *ngIf="list.length > 0; else emptyState">
+        <mat-list-item role="listitem" *ngFor="let item of list">
+          {{item.name}}
+        </mat-list-item>
+      </mat-list>
+      <ng-template #emptyState>
+        Did not find any universities for this country :(
+      </ng-template>
+    </mat-card-content>
+  </div>
+  <ng-template #startState>
+    Type any valid country in a searchbox above
+  </ng-template>
 </mat-card>
 
 
