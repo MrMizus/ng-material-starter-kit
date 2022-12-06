@@ -31,9 +31,6 @@ export class ProductCarComponent {
   }
 
   onChange(event: any) {
-    if (this.count === 0) {
-      this.array.splice(0, 1)
-    }
     this.count += 1
     if (event.checked) {
       this.array.push({ productId: parseInt(event.source.value), quantity: 1 })
@@ -45,6 +42,9 @@ export class ProductCarComponent {
 
 
   onProductIdFormSubmitted(productForm: FormGroup, userId: number): void {
+    if (this.count === 0) {
+      this.array.splice(0, 1)
+    }
     this._productCartService.create({
       userId: userId,
       products: this.array,
