@@ -14,11 +14,9 @@
     </mat-form-field>
   </div>
   <div>
-      <section>
-        <mat-checkbox *ngFor="let item of tags$ | async" formControlName="tags" (change)="onChange($event)" [value]="item.id">
-          {{item.name}}
-        </mat-checkbox>
-      </section>
+    <section formGroupName="jobTagsIdForm">
+      <mat-checkbox *ngFor="let item of tags$ | async" [formControlName]="item.id">{{item.name}}</mat-checkbox>
+    </section>
   </div>
   <div>
     <button type="submit" mat-raised-button color="primary">Submit</button>
