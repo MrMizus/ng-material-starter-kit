@@ -1,3 +1,8 @@
+<mat-chip-list aria-label="Fish selection">
+  <mat-chip *ngFor="let item of chip$ | async">
+ {{item}}
+</mat-chip>
+</mat-chip-list>
 <form [formGroup]="search">
   <div>
     <mat-form-field appearance="fill">
@@ -8,7 +13,7 @@
              formControlName="crypto"
              [matAutocomplete]="crypto">
       <mat-autocomplete #crypto="matAutocomplete">
-        <mat-option *ngFor="let item of crypto$ | async" [value]="item.symbol">
+        <mat-option *ngFor="let item of crypto$ | async" [value]="item.symbol" (click)="addChip(item.symbol)">
           {{item.symbol}}
         </mat-option>
       </mat-autocomplete>
@@ -16,6 +21,4 @@
   </div>
 </form>
 
-<mat-option *ngFor="let item of crypto$ | async">
-  {{item.symbol}}
-</mat-option>
+
