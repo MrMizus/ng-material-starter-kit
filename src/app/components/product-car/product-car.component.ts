@@ -31,7 +31,6 @@ export class ProductCarComponent {
   }
 
   onChange(event: any) {
-    this.count += 1
     if (event.checked) {
       this.array.push({ productId: parseInt(event.source.value), quantity: 1 })
     } else {
@@ -45,11 +44,11 @@ export class ProductCarComponent {
     if (this.count === 0) {
       this.array.splice(0, 1)
     }
+    this.count = 1
     this._productCartService.create({
       userId: userId,
       products: this.array,
-      date: productForm.get('date')?.value
+      date: `${productForm.get('date')?.value.getFullYear()}-${productForm.get('date')?.value.getMonth()}-${productForm.get('date')?.value.getDate()}`
     }).subscribe();
-    console.log(productForm.get('date'))
   }
 }
