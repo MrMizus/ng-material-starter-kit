@@ -40,9 +40,13 @@ export class JobFormComponent {
     this._jobPostsService.create({
       title: jobForm.get("title")?.value,
       description: jobForm.get("description")?.value,
-      jobTagIds: Object.keys(this.jobTagsIdForm.value).filter((key) => {
-        return this.jobTagsIdForm.value[key] === true
-      }).map(tag => +tag)
+      jobTagIds: Object.keys(this.jobTagsIdForm.value).reduce((acc: number[], curr: string) => {
+        if (this.jobTagsIdForm.value[curr]) {
+          return [...acc, +curr]
+        } else {
+          return acc
+        }
+      },[])
     }).subscribe();
   }
 }
