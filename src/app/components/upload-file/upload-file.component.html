@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Simple File Upload</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="uploadFile" (ngSubmit)="onUploadFileSubmitted(uploadFile)">
+      <div>
+        <ng-container *ngIf="imageToUpload$ | async as item"><img [src]="item" style="width: 200px; height: 200px;"></ng-container>
+        <input matInput type="File" placeholder="Url" formControlName="url" required (change)="onFileChanged($event)">
+      </div>
+      <div>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
